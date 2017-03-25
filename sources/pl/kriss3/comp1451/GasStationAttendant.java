@@ -53,12 +53,7 @@ public class GasStationAttendant extends Employee implements Comparable<GasStati
 	@Override
 	public int compareTo(GasStationAttendant gsa) 
 	{
-		if(numberOfDollarsStolenPerDay==gsa.numberOfDollarsStolenPerDay)  
-			return 0;  
-		else if(numberOfDollarsStolenPerDay > gsa.numberOfDollarsStolenPerDay)  
-			return 1;  
-		else
-			return -1;  
+		return (int)gsa.getNumberOfDollarsStolenPerDay() -  (int)this.getNumberOfDollarsStolenPerDay();
 	}
 
 	@Override
@@ -91,5 +86,11 @@ public class GasStationAttendant extends Employee implements Comparable<GasStati
 			return false;
 		
 		return true;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return String.format("Name: %s - Dollars Stolen: %s", super.getName(), numberOfDollarsStolenPerDay);
 	}
 }

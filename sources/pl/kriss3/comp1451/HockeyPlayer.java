@@ -56,37 +56,38 @@ public class HockeyPlayer extends Employee implements Comparable<HockeyPlayer>
 	}
 
 	@Override
-	public String getDressCode() {
-		// TODO Auto-generated method stub
+	public String getDressCode() 
+	{
 		return null;
 	}
 
 	@Override
-	public boolean isPaidSalary() {
-		// TODO Auto-generated method stub
+	public boolean isPaidSalary()
+	{
 		return false;
 	}
 
 	@Override
-	public boolean postSecondaryEducationRequired() {
-		// TODO Auto-generated method stub
+	public boolean postSecondaryEducationRequired()
+	{
 		return false;
 	}
 
 	@Override
-	public String getWorkVerb() {
-		// TODO Auto-generated method stub
+	public String getWorkVerb()
+	{
 		return null;
 	}
 
 	@Override
 	public int compareTo(HockeyPlayer hp) 
 	{
-		if(numberOfGoals==hp.numberOfGoals)  
-			return 0;  
-		else if(numberOfGoals>hp.numberOfGoals)  
-			return 1;  
-		else
-			return -1;  
+		return hp.numberOfGoals - this.numberOfGoals;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return String.format("Name: %s  - Number of Goals: %s", super.getName(), numberOfGoals);
 	}
 }

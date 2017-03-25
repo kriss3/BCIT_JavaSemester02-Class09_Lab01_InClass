@@ -53,12 +53,7 @@ public class Parent extends Employee implements Comparable<Parent>
 	@Override
 	public int compareTo(Parent parent) 
 	{
-		if(numberOfHoursSpentPerWeekWithKids==parent.numberOfHoursSpentPerWeekWithKids)  
-			return 0;  
-		else if(numberOfHoursSpentPerWeekWithKids > parent.numberOfHoursSpentPerWeekWithKids)  
-			return 1;  
-		else
-			return -1;  
+		return  parent.getNumberOfHoursSpentPerWeekWithKids() - this.getNumberOfHoursSpentPerWeekWithKids();
 	}
 
 	@Override
@@ -88,5 +83,11 @@ public class Parent extends Employee implements Comparable<Parent>
 			return false;
 		
 		return true;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return String.format("Name: %s  - Number of Hourst Spent With Kids: %s", super.getName(), numberOfHoursSpentPerWeekWithKids);
 	}
 }

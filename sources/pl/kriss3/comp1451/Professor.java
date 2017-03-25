@@ -7,7 +7,7 @@ public class Professor extends Employee implements Comparable<Professor>
 	public Professor(String name, String teachingMajor) 
 	{
 		super(name);
-		this.teachingMajor = teachingMajor;
+		setTeachingMajor(teachingMajor);
 	}
 
 	public String getTeachingMajor() 
@@ -53,10 +53,11 @@ public class Professor extends Employee implements Comparable<Professor>
 	@Override
 	public int compareTo(Professor prof) 
 	{
-		if(teachingMajor.equalsIgnoreCase("Computer Science"))  
-			return 1;  
-		else
-			return 0;  
+		//always start with what passing object/param has. Or compare with the required string/value;
+		if(this.getTeachingMajor().equals("Computer Systems"))
+			return -1;
+		else return 1;
+
 	}
 
 	@Override
@@ -89,6 +90,17 @@ public class Professor extends Employee implements Comparable<Professor>
 		} else if (!teachingMajor.equals(other.teachingMajor))
 			return false;
 		
-		return true;
+		if(this.getTeachingMajor().equalsIgnoreCase(other.getTeachingMajor()))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return String.format("Name: %s - Major: %s", super.getName(), teachingMajor);
 	}
 }
